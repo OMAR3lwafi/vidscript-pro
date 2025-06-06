@@ -12,7 +12,7 @@ import Link from 'next/link'
 import { useAuthStore } from '@/lib/stores/auth-store'
 import { useVideoStore } from '@/lib/stores/video-store'
 import ReactPlayer from 'react-player'
-import { formatDistanceToNow } from '@/lib/utils'
+import { formatDistanceToNow, formatTimestamp } from '@/lib/utils'
 
 interface TranscriptionSegment {
   start: number
@@ -346,10 +346,4 @@ export default function VideoPage({ params }: { params: { id: string } }) {
       </main>
     </div>
   )
-}
-
-function formatTimestamp(seconds: number): string {
-  const mins = Math.floor(seconds / 60)
-  const secs = Math.floor(seconds % 60)
-  return `${mins}:${secs.toString().padStart(2, '0')}`
 }

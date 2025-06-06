@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 import { supabase } from '@/lib/supabase'
 import type { Database } from '@/lib/supabase'
+import { useAuthStore } from './auth-store'
 
 type Video = Database['public']['Tables']['videos']['Row']
 type Transcription = Database['public']['Tables']['transcriptions']['Row']

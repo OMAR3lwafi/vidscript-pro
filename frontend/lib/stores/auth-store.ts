@@ -5,6 +5,7 @@ import { User } from '@supabase/supabase-js'
 interface AuthState {
   user: User | null
   loading: boolean
+  supabase: typeof supabase
   signIn: (email: string, password: string) => Promise<{ error: Error | null }>
   signUp: (email: string, password: string) => Promise<{ error: Error | null }>
   signOut: () => Promise<void>
@@ -14,6 +15,7 @@ interface AuthState {
 export const useAuthStore = create<AuthState>((set) => ({
   user: null,
   loading: true,
+  supabase,
 
   signIn: async (email: string, password: string) => {
     try {
