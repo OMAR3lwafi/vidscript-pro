@@ -23,3 +23,9 @@ export function formatDistanceToNow(date: Date): string {
   if (minutes > 0) return `${minutes} minute${minutes > 1 ? 's' : ''} ago`
   return 'just now'
 }
+
+export function formatTimestamp(seconds: number): string {
+  const mins = Math.floor(seconds / 60)
+  const secs = Math.floor(seconds % 60)
+  return `${mins}:${secs.toString().padStart(2, '0')}`
+}
